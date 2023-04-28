@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head> <h1 style="text-align: center;">Application Integration Details</h1>
+    <title>Application Integration Details</title>
+    <style>
+	  textarea {
+		width:36.5%;
+		resize : none;
+	  }
+      body {
+        background-color: #F2F2F2;
+		background-image: url('https://fedex-dims.brightspotgocdn.com/dims4/default/42a7005/2147483647/strip/true/crop/2508x1412+0+130/resize/1000x563!/format/webp/quality/90/?url=https%3A%2F%2Ffedex-static.brightspotgocdn.com%2F45%2Fb0%2Feeb10d903820a5f13c3c03409b63%2Ffedex-pic-1.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: 100% 100%;
+        font-family: Arial, sans-serif;
+      }
+      form {
+        background-color: white;
+		opacity: 0.9;
+		padding-left: 10px;
+        padding: 40px;
+        margin: 50px auto;
+        max-width: 800px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      label {
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+        margin-right: 20px;
+      }
+      input[type="text"],
+      select {
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      input[type="button"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+	  button {
+	   background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+	<script>
+      function app_appsendMessage() {
+        var requestor = document.getElementById("requestor_name").value;
+        var appName = document.getElementById("application_name").value;
+        var env = document.getElementById("environment").value;
+        var clientId = document.getElementById("client_id").value;
+        var scope = document.getElementById("scope").value; 
+		var server_details = document.getElementById("server_details").value;
+        var message = "Hello " + requestor + ":\n\nWe have successfully onboarded Application " + appName + " in Purpleid " + env + ". Please find the details below:\n\nServer details:\n"+server_details+"\nApplication name:\n" + appName + "\nClient ID:\n" + clientId + "\nScope:\n" + scope + "\nClient Secret: Will be shared in a separate channel\n\n";
+        document.getElementById("output").innerHTML = message;
+		document.getElementById("copyButton").style.display = "inline";
+
+      }
+</script>
+<script>
+      function spasendMessage() {
+        var requestor = document.getElementById("requestor_name").value;
+        var appName = document.getElementById("application_name").value;
+        var env = document.getElementById("environment").value;
+        var clientId1 = document.getElementById("client_id1").value;
+        var sign_in_urls1 = document.getElementById("sign_in_urls1").value; 
+		var server_details1 = document.getElementById("server_details1").value;
+		var image_roles1 = document.getElementById("image_roles1").value;
+        var message = "Hello " + requestor + ":\n\nWe have successfully onboarded Application " + appName + " in Purpleid " + env + ". \nPlease find the details below:\n\nServer details:"+server_details1+"\nApplication name:\n" + appName + "\nClient ID:\n" + clientId1 + "\nSign in Redirect Urls:\n" + sign_in_urls1 + "\nImage Roles:\n"+image_roles1+"\nPKCE:True\nCustom Attribute:\nemployeeNumber";
+        document.getElementById("output1").innerHTML = message;
+		document.getElementById("copyButton1").style.display = "inline";
+
+      }
+</script>
+<script>
+      function nativesendMessage() {
+        var requestor = document.getElementById("requestor_name").value;
+        var appName = document.getElementById("application_name").value;
+        var env = document.getElementById("environment").value;
+        var clientId2 = document.getElementById("client_id2").value;
+        var sign_in_urls2 = document.getElementById("sign_in_urls2").value; 
+		var server_details2 = document.getElementById("server_details2").value;
+		var image_roles2 = document.getElementById("image_roles2").value;
+        var message = "Hello " + requestor + ":\n\nWe have successfully onboarded Application " + appName + " in Purpleid " + env + ". Please find the details below:\n\nServer details\n:"+server_details2+"\nApplication name:\n" + appName + "\nClient ID:\n" + clientId2 + "\nSign in Redirect Urls:\n" + sign_in_urls2 + "\nImage Roles:\n"+image_roles2+"\nPKCE:True:\nCustom Attribute:\nemployeeNumber";
+        document.getElementById("output2").innerHTML = message;
+		document.getElementById("copyButton2").style.display = "inline";
+		
+      }
+</script>
+<script>
+      function samlsendMessage() {
+        var requestor = document.getElementById("requestor_name").value;
+        var appName = document.getElementById("application_name").value;
+        var env = document.getElementById("environment").value;
+        var clientId = document.getElementById("client_id").value;
+        var Sign_on_URL = document.getElementById("Sign_on_URL").value; 
+		var Issuer_URL = document.getElementById("Issuer_URL").value;
+		var Link_Metadata = document.getElementById("Link_Metadata").value;
+        var message = "Hello " + requestor + ":\n\nWe have successfully onboarded Application " + appName + " in Purpleid " + env + ". Please find the details below:\n\nSSO URL:\n"+ Sign_on_URL +"\nIssuer URL: \n" + Issuer_URL + "\nLink to Metadata URL ID:\n" + Link_Metadata +"\n";
+        document.getElementById("output3").innerHTML = message;
+		document.getElementById("copyButton3").style.display = "inline";
+
+      }
+</script>
+<script>
+	function copyMessageAPP_APP() {
+	  var message = document.getElementById("output").innerText;
+	  navigator.clipboard.writeText(message);
+	  alert("Copied");
+	}
+	function copyMessageSPA() {
+	  var message = document.getElementById("output1").innerText;
+	  navigator.clipboard.writeText(message);
+	  alert("Copied");
+	}
+	function copyMessageNative() {
+	  var message = document.getElementById("output2").innerText;
+	  navigator.clipboard.writeText(message);
+	  alert("Copied");
+	}
+	function copyMessageSAML() {
+	  var message = document.getElementById("output3").innerText;
+	  navigator.clipboard.writeText(message);
+	  alert("Copied");
+	}
+</script>
+  <body>
+	
+    <form action="/submit" method="POST">
+	  <label for="environment">Select Environment:</label>
+		<select id="environment" name="environment">
+		<option value="Prod">Prod</option>
+		<option value="Test">Test</option>
+		<option value="Stage">Stage</option>
+		</select><br><br>
+      <label for="application_name">Application Name:*</label>
+      <input type="text" id="application_name" name="application_name" required><br><br>
+	  <label for="requestor_name">Requestor Name:*</label>
+      <input type="text" id="requestor_name" name="requestor_name" required><br><br>
+	  <label for="app_type">Type of Application:</label>
+<select id="app_type" name="app_type" onchange="showFields()">
+    <option value="">Select Type of Application</option>
+    <option value="APP-APP">APP-APP</option>
+    <option value="Single Page">Single Page</option>
+    <option value="SaaS">SaaS</option>
+    <option value="Native Mobile">Native Mobile</option>
+</select><br><br>
+
+<!-- Fields for APP-APP -->
+<div id="app-app-fields" style="display:none;">
+    <label for="client_id">Client ID:</label>
+    <textarea id="client_id" name="client_id"></textarea><br><br>
+
+    <label for="server_details1">Server Details:</label>
+    <textarea id="server_details" name="server_details"></textarea><br><br>
+
+    <label for="scope">Scope:</label>
+	<textarea id="scope" name="scope"></textarea><br><br>
+
+	
+	<input type="button" value="Generate APP-APP Email" onclick="app_appsendMessage()">
+	<pre id="output"></pre>
+
+    <button id="copyButton" style="display:none;" onclick="copyMessageAPP_APP()">Copy</button>
+
+</div>
+
+<!-- Fields for Single Page -->
+<div id="single-page-fields" style="display:none;">
+    <label for="client_id1">Client ID:</label>
+	<textarea id="client_id1" name="client_id1"></textarea><br><br>
+
+    <label for="sign_in_urls1">Sign-in URLs:</label>
+	<textarea id="sign_in_urls1" name="sign_in_urls1"></textarea><br><br>
+
+    <label for="server_details1">Server Details:</label>
+    <textarea id="server_details1" name="server_details1"></textarea><br><br>
+
+	<label for="image_roles1">Image Roles:</label>
+    <textarea id="image_roles1" name="image_roles1"></textarea><br><br>
+
+	<input type="button" value="Generate SPA Email" onclick="spasendMessage()">
+	<pre id="output1"></pre>
+	<button id="copyButton1" style="display:none;" onclick="copyMessageSPA()">Copy</button>
+
+</div>
+
+<!-- Fields for Native Mobile -->
+<div id="native-mobile-fields" style="display:none;">
+    <label for="client_id2">Client ID:</label>
+	<textarea id="client_id2" name="client_id2"></textarea><br><br>
+
+    <label for="sign_in_urls2">Sign-in URLs:</label>
+	<textarea id="sign_in_urls2" name="sign_in_urls2"></textarea><br><br>
+
+    <label for="server_details2">Server Details:</label>
+    <textarea id="server_details2" name="server_details2"></textarea><br><br>
+	
+	<label for="image_roles2">Image Roles:</label>
+    <textarea id="image_roles2" name="image_roles2"></textarea><br><br>
+
+	<input type="button" value="Generate Native Mobile Email" onclick="nativesendMessage()">
+	<pre id="output2"></pre>
+	<button id="copyButton2" style="display:none;" onclick="copyMessageNative()">Copy</button>
+
+</div>
+<!-- Fields for SaaS-->
+<div id="SaaS-fields" style="display:none;">
+    <label for="Sign On URL">Sign On URL:</label>
+    <input type="text" id="Sign_on_URL" name="Sign_on_URL"><br><br>
+
+    <label for="Issuer_URL">Issuer URL:</label>
+    <input type="text" id="Issuer_URL" name="Issuer_URL"><br><br>
+	
+	<label for="Link_Metadata">Link to Metadata File:</label>
+    <input type="text" id="Link_Metadata" name="Link_Metadata"><br><br>
+	<input type="button" value="Generate SaaS Email" onclick="samlsendMessage()">
+	<pre id="output3"></pre>
+	<button id="copyButton3" style="display:none;" onclick="copyMessageSAML()">Copy</button>
+
+</div>
+
+<script>
+function showFields() {
+    var appType = document.getElementById("app_type").value;
+    var appAppFields = document.getElementById("app-app-fields");
+    var singlePageFields = document.getElementById("single-page-fields");
+    var nativeMobileFields = document.getElementById("native-mobile-fields");
+	var saasFields = document.getElementById("SaaS-fields");
+
+    appAppFields.style.display = "none";
+    singlePageFields.style.display = "none";
+    nativeMobileFields.style.display = "none";
+	saasFields.style.display = "none";
+
+    if (appType === "APP-APP") {
+        appAppFields.style.display = "block";
+    } else if (appType === "Single Page") {
+        singlePageFields.style.display = "block";
+    } else if (appType === "Native Mobile") {
+        nativeMobileFields.style.display = "block";
+    } else if (appType === "SaaS") {
+		saasFields.style.display = "block"
+	}
+}
+</script>
+		</form>
+
+  </body>
+</html>
